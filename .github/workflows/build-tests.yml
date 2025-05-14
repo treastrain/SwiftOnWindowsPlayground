@@ -17,3 +17,7 @@ jobs:
       - name: Show Swift version
         run: swift --version
       - uses: actions/checkout@v4
+        with:
+          repository: treastrain/Persistence
+      - name: Build
+        run: swift build
