@@ -8,12 +8,12 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2025
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install Swift from WinGet
-        run: |
-          winget install --id Microsoft.VisualStudio.2022.Community --accept-source-agreements --exact --force --custom "--add Microsoft.VisualStudio.Component.Windows11SDK.22000 --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.VC.Tools.ARM64"
-          winget install --id Swift.Toolchain -e
+      - uses: compnerd/gha-setup-swift@main
+        with:
+          branch: swift-6.0.3-release
+          tag: 6.0.3-RELEASE
       - name: Show Swift version
         run: swift --version
+      - uses: actions/checkout@v4
